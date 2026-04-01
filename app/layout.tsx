@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${RethinkSans.className} h-full antialiased`}>
-      <body className="min-h-full flex flex-col h-2500">
+      <body className="min-h-full flex flex-col">
         <Nav />
         {children}
       </body>

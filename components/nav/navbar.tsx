@@ -24,7 +24,7 @@ const Nav = () => {
 
   return (
     <header
-      className={`h-[12vh] w-full ${shadow && "shadow-md"} transition-all duration-200 fixed z-100`}
+      className={`h-[12vh] bg-white w-full ${shadow && "shadow-md"} transition-all duration-200 fixed z-100`}
     >
       <div className="h-full w-[90%] xl:w-[80%] flex justify-between items-center mx-auto">
         <div className="flex items-center justify-center gap-x-2">
@@ -34,7 +34,7 @@ const Nav = () => {
           <h1 className="text-xl font-bold hidden sm:block md:text-2xl text-blue-800">TechDev</h1>
         </div>
 
-        <nav className="hidden lg:flex items-centr justify-center gap-x-10">
+        <nav className="hidden xl:flex items-centr justify-center gap-x-10">
           {navLinks.map(({ href, name }) => (
             <Link
               key={name}
@@ -46,7 +46,7 @@ const Nav = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-x-4">
+        <div className="flex items-center">
           <a
             href="#_"
             className="box-border relative z-30 inline-flex items-center justify-center w-auto px-8 py-3 overflow-hidden font-bold text-white transition-all duration-300 bg-indigo-600 rounded-md cursor-pointer group ring-offset-2 ring-1 ring-indigo-300 ring-offset-indigo-200 hover:ring-offset-indigo-500 ease focus:outline-none"
@@ -73,7 +73,7 @@ const Nav = () => {
           </a>
           <HiBars3BottomRight
             onClick={handleOpen}
-            className="size-8  text-black lg:hidden cursor-pointer"
+            className="size-8  text-black block xl:hidden cursor-pointer ml-4"
           />
           <MobMenu handleClose={handleClose} open={open} />
         </div>

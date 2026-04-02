@@ -25,7 +25,7 @@ const Reviews = () => {
         variants={container}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.4 }}
         className="grid grid-cols-1 lg:grid-cols-2 w-[80%] mx-auto gap-4 items-center"
       >
         <Card img="/images/u1.jpg" name="Jassica Doe" num={4.7} />

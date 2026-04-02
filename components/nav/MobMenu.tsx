@@ -11,7 +11,7 @@ const MobMenu = ({ handleClose, open }: { handleClose: () => void; open: boolean
         transition-transform duration-300`}
       />
       <div
-        className={`fixed inset-0 bg-blue-900 w-[80%] sm:w-[60%]
+        className={`fixed inset-0 bg-blue-900 w-[60%] sm:w-[40%] md:w-[35%] lg:w-[30%]
              text-white h-screen z-1003 flex flex-col gap-y-6 justify-center
              transition-transform duration-500 delay-300 ${isOpen} transition-transform duration-300 delay-200`}
       >

@@ -1,11 +1,26 @@
+"use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import TitleBox from "@/helper/titleBox";
 import Link from "next/link";
 const About = () => {
   return (
-    <div className="py-16">
-      <div className="w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        <Image alt="About image" className="z-0" width={600} height={600} src="/images/about.png" />
+    <div>
+      <div className="w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center py-12">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }} // مخفي وصغير الحجم
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: .8, ease: "easeOut" }}
+          viewport={{ once: true , amount: 1}}
+        >
+          <Image
+            alt="About image"
+            className="z-0"
+            width={600}
+            height={600}
+            src="/images/about.png"
+          />
+        </motion.div>
         <div className="flex flex-col gap-y-3">
           <TitleBox>About Us</TitleBox>
           <h1 className="font-bold text-gray-900 text-2xl sm:text-3xl leading-10 sm:leading-12">

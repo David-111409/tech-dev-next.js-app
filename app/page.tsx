@@ -5,9 +5,11 @@ import Services from "@/components/services/Services";
 import Reviews from "@/components/reviews/Reviews";
 import Team from "@/components/Team";
 import Pricing from "@/components/Pricing";
+import ScrollToTop from "@/components/ScrollToTop";
 const page = () => {
   return (
     <>
+    <ScrollToTop />
       <Hero />
       <About />
       <Features />
@@ -15,6 +17,7 @@ const page = () => {
       <Reviews />
       <Team />
       <Pricing />
+      
     </>
   );
 };

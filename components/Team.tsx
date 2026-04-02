@@ -1,6 +1,8 @@
+"use client";
 import TitleBox from "@/helper/titleBox";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 const Team = () => {
   return (
     <div className="py-16">
@@ -27,7 +29,13 @@ const Team = () => {
         </div>
         {/* image col */}
         <div className="lg:col-span-3 flex flex-col gap-4 sm:flex-row">
-          <div className="relative w-fit">
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }} // يظهر عند scroll
+            viewport={{ once: true, amount: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative w-fit"
+          >
             <Image
               alt="Team Member"
               width={300}
@@ -39,8 +47,14 @@ const Team = () => {
               <p className="tex-lg text-white text-bold">Obito Uchiha</p>
               <p className="text-gray-200">(Founder)</p>
             </div>
-          </div>
-          <div className="relative w-fit overflow-hidden">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }} // يظهر عند scroll
+            viewport={{ once: true, amount: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative w-fit overflow-hidden"
+          >
             <Image
               alt="Team Member"
               width={300}
@@ -52,7 +66,7 @@ const Team = () => {
               <p className="tex-lg text-white text-bold">Jassica Doe</p>
               <p className="text-gray-200">(Co-Founder)</p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

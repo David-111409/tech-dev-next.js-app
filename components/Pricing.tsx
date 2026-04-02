@@ -1,4 +1,20 @@
+"use client";
+import { motion } from "framer-motion";
+
 const Pricing = () => {
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.4, // كل بطاقة تظهر بعد 0.2 ثانية من اللي قبلها
+      },
+    },
+  };
+
+  const card = {
+    hidden: { opacity: 0, x: -100 }, // البداية: مخفية ومن تحت
+    show: { opacity: 1, x: 0 }, // النهاية: تظهر مكانها الطبيعي
+  };
   return (
     <div className="py-16 bg-gray-100 flex flex-col gap-y-16">
       <div className="flex flex-col items-center justify-center gap-y-3 text-gray-700">
@@ -9,8 +25,18 @@ const Pricing = () => {
         </p>
 
         {/* grid */}
-        <div className="grid items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-11 w-[80%] mx-auto">
-          <div className="rounded-lg border-t-4 border-rose-300 bg-white p-8">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.5 }}
+          className="grid items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-11 w-[80%] mx-auto"
+        >
+          <motion.div
+            variants={card}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="rounded-lg border-t-4 border-rose-300 bg-white p-8"
+          >
             <h1 className="text-sky-500 text-xl font-bold">3 Month Membership</h1>
             <p className="mt-4 text-gray-600 font-medium">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere dolores culpa in
@@ -28,9 +54,13 @@ const Pricing = () => {
                 Upgrade Now
               </a>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="rounded-lg border-t-4 border-rose-300 bg-white p-8">
+          <motion.div
+            variants={card}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="rounded-lg border-t-4 border-rose-300 bg-white p-8"
+          >
             <h1 className="text-sky-500 text-xl font-bold">12 Month Membership</h1>
             <p className="mt-4 text-gray-600 font-medium">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere dolores culpa in
@@ -48,9 +78,13 @@ const Pricing = () => {
                 Upgrade Now
               </a>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="rounded-lg border-t-4 border-rose-300 bg-white p-8">
+          <motion.div
+            variants={card}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="rounded-lg border-t-4 border-rose-300 bg-white p-8"
+          >
             <h1 className="text-sky-500 text-xl font-bold">Life time Membership</h1>
             <p className="mt-4 text-gray-600 font-medium">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere dolores culpa in
@@ -68,8 +102,8 @@ const Pricing = () => {
                 Upgrade Now
               </a>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );

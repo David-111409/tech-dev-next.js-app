@@ -1,9 +1,18 @@
 import Image from "next/image";
 import { BsStarHalf } from "react-icons/bs";
 import { FaStar } from "react-icons/fa6";
+import { motion } from "framer-motion";
 const Card = ({ img, name, num }: { img: string; name: string; num: number }) => {
+  const card = {
+    hidden: { opacity: 0, x: -100 }, // البداية: مخفية ومن تحت
+    show: { opacity: 1, x: 0 }, // النهاية: تظهر مكانها الطبيعي
+  };
   return (
-    <div className="bg-white p-8 shadow-md flex flex-col items-center gap-y-4 sm:flex-row sm:gap-x-6 rounded-lg">
+    <motion.div
+      variants={card}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="bg-white p-8 shadow-md flex flex-col items-center gap-y-4 sm:flex-row sm:gap-x-6 rounded-lg"
+    >
       {/* image */}
       <Image
         src={img}
@@ -28,7 +37,7 @@ const Card = ({ img, name, num }: { img: string; name: string; num: number }) =>
           quisquam ullam quo.
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,13 +1,20 @@
+"use client"; // مهم لو فيه animation
 import Image from "next/image";
 import { BsStarHalf } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import Link from "next/link";
+import { motion } from "framer-motion";
 const Hero = () => {
   return (
     <div className="relative w-full h-[110vh] sm:h-screen flex flex-col justify-center bg-[url('/images/bg.png')] bg-cover bg-center">
       <div className="w-[90%] md:w-[80%] mx-auto grid grid-cols-1 xl:grid-cols-2 gap-10 items-center">
         {/* text content col */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <p className="text-sm sm:text-base md:text-xl font-bold text-blue-950">
             Make the Smartest Investment
           </p>
@@ -128,10 +135,22 @@ const Hero = () => {
               <span className="relative">Create Account</span>
             </Link>
           </div>
-        </div>
-        <div className="hidden xl:block">
-            <Image src="/images/hero.jpg" alt="Hero Image" width={900} height={900} className="cover" />
-        </div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -50 }} // البداية: مخفي ومن فوق
+          whileInView={{ opacity: 1, y: 0 }} // يظهر عند الوصول
+          viewport={{ once: true }} // يظهر مرة واحدة فقط
+          transition={{ duration: 0.6 }}
+          className="hidden xl:block"
+        >
+          <Image
+            src="/images/hero.jpg"
+            alt="Hero Image"
+            width={900}
+            height={900}
+            className="cover"
+          />
+        </motion.div>
       </div>
     </div>
   );
